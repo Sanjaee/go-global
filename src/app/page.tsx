@@ -12,9 +12,7 @@ import QuotaSchedule from '../components/QuotaSchedule';
 import Requirements from '../components/Requirements';
 import ProgramCosts from '../components/ProgramCosts';
 import Testimonials from '../components/Testimonials';
-import RegistrationFlow from '../components/RegistrationFlow';
-import FAQ from '../components/FAQ';
-import CTA from '../components/CTA';
+import RegistrationProcess from '../components/RegistrationProcess';
 import Footer from '../components/Footer';
 import OpeningAnimation from '../components/OpeningAnimation';
 
@@ -42,9 +40,7 @@ export default function Home() {
           <ProgramCosts />
           <Testimonials />
           <Requirements />
-          <RegistrationFlow />
-          <FAQ />
-          <CTA />
+          <RegistrationProcess />
           <Footer />
         </div>
       )}
