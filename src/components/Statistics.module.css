@@ -1,0 +1,130 @@
+.statisticsSection {
+  background-color: var(--primary-red);
+  padding: 80px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.containerCard {
+  background-color: var(--bg-white);
+  border-radius: 28px;
+  padding: 60px 40px;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #2b3a4a;
+  margin-bottom: 40px;
+  line-height: 1.3;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.statCard {
+  border: 1.5px solid var(--primary-red);
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.statHeader {
+  background-color: var(--primary-red);
+  color: white;
+  padding: 14px 10px;
+  font-size: 16px;
+  font-weight: 700;
+  min-height: 52px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1.3;
+}
+
+.statBody {
+  padding: 24px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.count {
+  font-size: 42px;
+  font-weight: 800;
+  color: #2b3a4a;
+  line-height: 1;
+}
+
+.unit {
+  font-size: 14px;
+  font-weight: 600;
+  color: #8fa0ba;
+}
+
+/* Desktop Styles */
+@media (min-width: 1024px) {
+  .containerCard {
+    max-width: 1140px;
+    padding: 60px 50px;
+  }
+
+  .title {
+    font-size: 32px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+
+  .count {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .statisticsSection {
+    padding: 60px 15px;
+  }
+
+  .containerCard {
+    padding: 40px 20px;
+  }
+
+  .title {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+
+  .grid {
+    gap: 15px;
+  }
+
+  .statHeader {
+    font-size: 14px;
+    padding: 10px 8px;
+    min-height: 48px;
+  }
+
+  .statBody {
+    padding: 18px 8px;
+  }
+
+  .count {
+    font-size: 32px;
+  }
+}

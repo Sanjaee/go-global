@@ -1,0 +1,186 @@
+.programSection {
+  background-color: var(--primary-red);
+  padding: 80px 20px;
+  color: white;
+}
+
+.container {
+  max-width: 560px;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.headerInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  width: 100%;
+}
+
+.mainTitle {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.mainDescription {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.dividerLine {
+  width: 100%;
+  height: 1.5px;
+  background-color: rgba(255, 255, 255, 0.35);
+  margin: 40px 0;
+}
+
+.batchContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.batchTitleWrapper {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 40px;
+}
+
+.batchTitle {
+  font-size: 28px;
+  font-weight: 700;
+  position: relative;
+  z-index: 2;
+}
+
+.cloudOrnament {
+  position: absolute;
+  right: -25px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 44px;
+  width: auto;
+  object-fit: contain;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.scheduleGroup {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.fieldBadge {
+  background-color: white;
+  color: var(--primary-red);
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 12px;
+  padding: 12px 20px;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.scheduleCard {
+  background-color: white;
+  color: var(--text-dark);
+  border-radius: 20px;
+  padding: 32px 24px;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.scheduleBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+}
+
+.scheduleLabel {
+  font-size: 14px;
+  font-weight: 700;
+  color: #4a5f7d;
+}
+
+.scheduleDate {
+  font-size: 26px;
+  font-weight: 800;
+  color: #111;
+  letter-spacing: -0.01em;
+}
+
+.cardDivider {
+  width: 100%;
+  height: 1px;
+  background-color: #e2e8f0;
+}
+
+.deadlineText {
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .programSection {
+    padding: 60px 15px;
+  }
+
+  .mainTitle {
+    font-size: 26px;
+  }
+
+  .mainDescription {
+    font-size: 15px;
+  }
+
+  .batchTitle {
+    font-size: 24px;
+  }
+
+  .cloudOrnament {
+    height: 36px;
+    right: -15px;
+  }
+
+  .fieldBadge {
+    font-size: 15px;
+    padding: 10px 15px;
+  }
+
+  .scheduleCard {
+    padding: 24px 20px;
+    gap: 20px;
+  }
+
+  .scheduleDate {
+    font-size: 22px;
+  }
+
+  .deadlineText {
+    font-size: 15px;
+  }
+}

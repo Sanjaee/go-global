@@ -1,0 +1,122 @@
+.advantagesSection {
+  background-color: var(--primary-red);
+  padding: 80px 20px;
+  color: white;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 50px;
+  letter-spacing: -0.01em;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.item {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.numberWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-width: 50px;
+}
+
+.number {
+  font-size: 64px;
+  font-weight: 800;
+  color: white;
+  line-height: 0.9;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.itemTitle {
+  font-size: 22px;
+  font-weight: 700;
+  color: white;
+}
+
+.itemDescription {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.instaLink {
+  color: #38bdf8;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.instaLink:hover {
+  text-decoration: underline;
+}
+
+/* Desktop Styles */
+@media (min-width: 1024px) {
+  .list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 100%;
+  }
+
+  .item {
+    gap: 20px;
+  }
+
+  .number {
+    font-size: 72px;
+  }
+  
+  .title {
+    font-size: 36px;
+    margin-bottom: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .advantagesSection {
+    padding: 60px 15px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .number {
+    font-size: 56px;
+  }
+
+  .itemTitle {
+    font-size: 20px;
+  }
+
+  .itemDescription {
+    font-size: 15px;
+  }
+}

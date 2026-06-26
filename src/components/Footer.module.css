@@ -1,0 +1,204 @@
+.footer {
+  background-color: var(--primary-red);
+  padding: 80px 20px 40px 20px;
+  color: #ffffff;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.footerGrid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1.2fr;
+  gap: 60px;
+  margin-bottom: 50px;
+}
+
+/* Column 1: Brand */
+.brandCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  text-align: left;
+}
+
+.logoWrapper {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 10px 20px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.logo {
+  height: 44px;
+  width: auto;
+  object-fit: contain;
+}
+
+.brandDesc {
+  font-size: 15px;
+  font-weight: 550;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+/* Titles */
+.colTitle {
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #fbc02d; /* Gold accent color */
+  margin: 0 0 24px 0;
+  text-align: left;
+}
+
+/* Column 2: Nav */
+.navCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.navList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+}
+
+.navLink {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  transition: color 0.2s ease, padding-left 0.2s ease;
+  display: inline-block;
+}
+
+.navLink:hover {
+  color: #ffffff;
+  padding-left: 4px;
+}
+
+/* Column 3: Contact */
+.contactCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.contactList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+}
+
+.contactItem, .contactItemLink {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.5;
+  transition: color 0.2s ease;
+}
+
+.contactItemLink:hover {
+  color: #ffffff;
+}
+
+.icon {
+  font-size: 18px;
+  color: #fbc02d; /* Gold color for icons to match title */
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.contactText {
+  color: inherit;
+}
+
+/* Divider */
+.divider {
+  border: none;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.15);
+  margin: 0 0 30px 0;
+}
+
+/* Bottom Row */
+.bottomRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.copyright, .operationalInfo {
+  font-size: 13.5px;
+  font-weight: 550;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .footerGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .brandCol, .navCol, .contactCol {
+    align-items: flex-start;
+  }
+
+  .colTitle {
+    margin-bottom: 16px;
+  }
+
+  .bottomRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer {
+    padding: 60px 15px 30px 15px;
+  }
+
+  .logoWrapper {
+    padding: 8px 16px;
+  }
+
+  .logo {
+    height: 38px;
+  }
+
+  .brandDesc, .navLink, .contactItem, .contactItemLink {
+    font-size: 14px;
+  }
+
+  .copyright, .operationalInfo {
+    font-size: 12.5px;
+  }
+}

@@ -1,0 +1,218 @@
+.aboutSection {
+  background-color: var(--primary-red);
+  color: var(--text-light);
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.title {
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+.illustrationContainer {
+  max-width: 680px;
+  width: 100%;
+  margin: 0 auto 40px;
+  padding: 0 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.illustration {
+  width: 100%;
+  height: auto;
+  max-height: 420px;
+  object-fit: contain;
+  display: block;
+}
+
+.description {
+  max-width: 800px;
+  margin: 0 auto 60px;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+}
+
+.description p {
+  margin-bottom: 32px;
+}
+
+.description p:last-child {
+  margin-bottom: 0;
+}
+
+.cardsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 560px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.rightCardsGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+}
+
+.jobsCard {
+  background-color: var(--bg-white);
+  color: var(--text-dark);
+  border-radius: 28px;
+  padding: 40px 30px;
+  width: 100%;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.15);
+}
+
+.cardTitle {
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #2b3a4a;
+}
+
+.cardTitle span {
+  color: var(--primary-red);
+}
+
+.jobsList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  max-width: max-content;
+  margin: 0 auto;
+}
+
+.jobsList li {
+  position: relative;
+  padding-left: 24px;
+  color: #4a5f7d;
+  font-weight: 600;
+  font-size: 18px;
+  text-align: left;
+}
+
+.jobsList li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #8fa0ba;
+  font-size: 22px;
+  line-height: 1;
+  top: -2px;
+}
+
+.visaTypesCard {
+  background-color: #fdebea;
+  color: var(--text-dark);
+  border-radius: 28px;
+  padding: 40px 30px;
+  width: 100%;
+  text-align: left;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.1);
+}
+
+.visaType {
+  margin-bottom: 24px;
+}
+
+.visaType:last-of-type {
+  margin-bottom: 0;
+}
+
+.visaType h4 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #2b3a4a;
+}
+
+.visaType p {
+  color: #5b6b86;
+  font-weight: 500;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.visaType p:last-child {
+  margin-bottom: 0;
+}
+
+.divider {
+  border-top: 1.5px dashed #d29a98;
+  margin: 24px 0;
+}
+
+.salaryCard {
+  background-color: #fdebea;
+  color: var(--text-dark);
+  border-radius: 28px;
+  padding: 40px 30px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.1);
+}
+
+.salaryContent {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.salaryJpy {
+  font-size: 22px;
+  font-weight: 700;
+  color: #2b3a4a;
+}
+
+.salaryIdr {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--primary-red);
+}
+
+@media (min-width: 1024px) {
+  .cardsContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 1140px;
+    align-items: stretch; /* equal heights if possible, or start */
+  }
+  
+  .rightCardsGroup {
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 768px) {
+  .cardsContainer {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .jobsCard, .visaTypesCard, .salaryCard {
+    padding: 30px 20px;
+  }
+  .cardTitle {
+    font-size: 24px;
+  }
+  .jobsList li {
+    font-size: 16px;
+  }
+  .salaryJpy {
+    font-size: 18px;
+  }
+  .salaryIdr {
+    font-size: 24px;
+  }
+}

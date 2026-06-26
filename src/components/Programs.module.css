@@ -1,0 +1,251 @@
+.programsSection {
+  background-color: var(--primary-red);
+  padding: 80px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sectionContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+/* Card 1: Tentang Go Global */
+.aboutCard {
+  background-color: var(--bg-white);
+  color: var(--text-dark);
+  border-radius: 28px;
+  padding: 60px 30px 40px;
+  position: relative;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.flagsContainer {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 12px;
+}
+
+.flagWrapper {
+  width: 55px;
+  height: 55px;
+  border-radius: 14px;
+  overflow: hidden;
+  background-color: white;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid white;
+}
+
+.flag {
+  width: 105%;
+  height: 105%;
+  object-fit: cover;
+}
+
+.aboutTitle {
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 24px;
+  color: #2b3a4a;
+  line-height: 1.3;
+}
+
+.aboutTitle span {
+  color: var(--primary-red);
+}
+
+.aboutContent {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: left;
+}
+
+.aboutContent p {
+  color: #5b6b86;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+/* Card 2: Program Kami Wrapper */
+.programCardWrapper {
+  background-color: var(--bg-white);
+  border-radius: 28px;
+  padding: 40px 30px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.programSectionTitle {
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #2b3a4a;
+}
+
+.programSectionTitle span {
+  color: var(--primary-red);
+}
+
+/* Inner Program Card */
+.programCard {
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid #fdebea;
+}
+
+/* Top Red Part */
+.programBasicPart {
+  background-color: var(--primary-red);
+  color: white;
+  padding: 30px 24px;
+  text-align: left;
+}
+
+.programBasicPart h4 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.programBasicPart p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.programBasicPart p:last-child {
+  margin-bottom: 0;
+}
+
+.programBasicPart strong {
+  color: white;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* Bottom Pink Part */
+.jobMatchingPart {
+  background-color: #fdebea;
+  color: #2b3a4a;
+  padding: 30px 24px;
+  text-align: left;
+}
+
+.jobMatchingPart h4 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #2b3a4a;
+  text-align: center;
+}
+
+.jobMatchingPart p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  color: #5b6b86;
+  font-weight: 500;
+}
+
+.jobMatchingPart p:last-of-type {
+  margin-bottom: 24px;
+}
+
+.link {
+  color: var(--primary-red);
+  text-decoration: underline;
+  font-weight: 700;
+}
+
+/* Social Bar */
+.socialBar {
+  background-color: white;
+  border-radius: 14px;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.tgLogo {
+  height: 24px;
+  width: auto;
+  object-fit: contain;
+}
+
+.instagramLink {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #4a5f7d;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.instagramLink:hover {
+  color: var(--primary-red);
+}
+
+/* Responsive Desktop Layout */
+@media (min-width: 1024px) {
+  .sectionContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 1140px;
+    align-items: stretch;
+  }
+
+  .aboutCard, .programCardWrapper {
+    height: 100%;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  .aboutCard {
+    padding: 60px 40px 40px;
+  }
+
+  .programCardWrapper {
+    padding: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .programsSection {
+    padding: 60px 15px;
+  }
+
+  .flagWrapper {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+  }
+
+  .aboutTitle, .programSectionTitle {
+    font-size: 24px;
+  }
+
+  .aboutContent p {
+    font-size: 15px;
+  }
+}
