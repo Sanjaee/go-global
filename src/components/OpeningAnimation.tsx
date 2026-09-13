@@ -10,12 +10,24 @@ export default function OpeningAnimation({ onComplete }: { onComplete: () => voi
   const word1Ref = useRef<HTMLDivElement>(null);
   const word2Ref = useRef<HTMLDivElement>(null);
   const word3Ref = useRef<HTMLDivElement>(null);
+  
+  const onCompleteRef = useRef(onComplete);
+  const hasRunRef = useRef(false);
 
   useEffect(() => {
+    onCompleteRef.current = onComplete;
+  }, [onComplete]);
+
+  useEffect(() => {
+    if (hasRunRef.current) return;
+    hasRunRef.current = true;
+
     const tl = gsap.timeline({
       onComplete: () => {
         setIsVisible(false);
-        setTimeout(onComplete, 800); // Wait for framer-motion exit animation
+        setTimeout(() => {
+          onCompleteRef.current();
+        }, 800); // Wait for framer-motion exit animation
       }
     });
 
@@ -27,7 +39,7 @@ export default function OpeningAnimation({ onComplete }: { onComplete: () => voi
     .to(word1Ref.current, 
       { opacity: 0, y: -20, scale: 0.98, duration: 0.3, ease: 'power3.in', delay: 0.4 }
     )
-    // Animate "Yokoso" in & out
+    // Animate "Konnichiwa" in & out
     .fromTo(word2Ref.current, 
       { opacity: 0, y: 20, scale: 0.95 },
       { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: 'power3.out' },
@@ -36,7 +48,7 @@ export default function OpeningAnimation({ onComplete }: { onComplete: () => voi
     .to(word2Ref.current, 
       { opacity: 0, y: -20, scale: 0.98, duration: 0.3, ease: 'power3.in', delay: 0.4 }
     )
-    // Animate "ようこそ" (Original Japanese) in & zoom out
+    // Animate "こんにちは" (Original Japanese) in & zoom out
     .fromTo(word3Ref.current, 
       { opacity: 0, y: 25, scale: 0.95 },
       { opacity: 1, y: 0, scale: 1.05, duration: 0.5, ease: 'back.out(1.5)' },
@@ -49,7 +61,7 @@ export default function OpeningAnimation({ onComplete }: { onComplete: () => voi
     return () => {
       tl.kill();
     };
-  }, [onComplete]);
+  }, []);
 
   return (
     <AnimatePresence>
@@ -69,3 +81,4 @@ export default function OpeningAnimation({ onComplete }: { onComplete: () => voi
     </AnimatePresence>
   );
 }
+
