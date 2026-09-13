@@ -4,8 +4,24 @@ import { motion } from 'framer-motion';
 import { FaWhatsapp } from 'react-icons/fa';
 import { FiArrowRight } from 'react-icons/fi';
 import styles from './Hero.module.css';
+import { useEffect } from 'react';
+import { getPrograms } from '@/actions/programs';
+import { useProgramStore } from '@/store/useProgramStore';
 
 export default function Hero() {
+  const { activeProgram, setPrograms, setActiveProgram } = useProgramStore();
+
+  useEffect(() => {
+    async function loadPrograms() {
+      const loadedPrograms = await getPrograms();
+      setPrograms(loadedPrograms as any);
+      if (loadedPrograms.length > 0) {
+        setActiveProgram(loadedPrograms[0] as any);
+      }
+    }
+    loadPrograms();
+  }, [setPrograms, setActiveProgram]);
+
   return (
     <section className={styles.hero}>
       {/* Background layer */}
@@ -110,13 +126,21 @@ export default function Hero() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
           >
-            <h3 style={{ fontSize: '16px', fontWeight: 700, color: '#111', marginBottom: '10px' }}>Program Basic Batch 5</h3>
+            <h3 style={{ fontSize: '16px', fontWeight: 700, color: '#111', marginBottom: '10px' }}>
+              {activeProgram ? activeProgram.name : 'Program Basic Batch 5'}
+            </h3>
             <div style={{ width: '85%', height: '1.5px', background: '#111', margin: '0 auto 16px' }}></div>
-            <p style={{ color: '#a30d11', fontWeight: 700, fontSize: '13px', marginBottom: '16px' }}>Bidang Keperawatan Lansia</p>
+            <p style={{ color: '#a30d11', fontWeight: 700, fontSize: '13px', marginBottom: '16px' }}>
+              {activeProgram ? activeProgram.field : 'Bidang Keperawatan Lansia'}
+            </p>
             <p style={{ color: '#3b4c68', fontWeight: 600, fontSize: '10px', marginBottom: '5px' }}>Program Online (Minggu Pertama)</p>
-            <p style={{ color: '#111', fontSize: '20px', fontWeight: 800, marginBottom: '22px' }}>13 Juli 2026 -</p>
+            <p style={{ color: '#111', fontSize: '20px', fontWeight: 800, marginBottom: '22px' }}>
+              {activeProgram ? activeProgram.onlineDate : '13 Juli 2026 -'}
+            </p>
             <p style={{ color: '#3b4c68', fontWeight: 600, fontSize: '10px', marginBottom: '5px' }}>Program Offline (Mulai Minggu ke-2)</p>
-            <p style={{ color: '#111', fontSize: '20px', fontWeight: 800 }}>20 Juli 2026 -</p>
+            <p style={{ color: '#111', fontSize: '20px', fontWeight: 800 }}>
+              {activeProgram ? activeProgram.offlineDate : '20 Juli 2026 -'}
+            </p>
           </motion.div>
 
           {/* Takuya Image - absolute, right side, fades on right & bottom edges */}

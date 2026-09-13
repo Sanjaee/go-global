@@ -1,6 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { getPrograms } from '@/actions/programs';
+import { getQuotas, getTestimonials, getJobFields, getStats } from '@/actions/sections';
 import Hero from '../components/Hero';
 import About from '../components/About';
 import Programs from '../components/Programs';
@@ -18,6 +20,29 @@ import OpeningAnimation from '../components/OpeningAnimation';
 
 export default function Home() {
   const [showContent, setShowContent] = useState(false);
+  const [programsList, setProgramsList] = useState<any[]>([]);
+  const [quotasList, setQuotasList] = useState<any[]>([]);
+  const [testimonialsList, setTestimonialsList] = useState<any[]>([]);
+  const [jobFieldsList, setJobFieldsList] = useState<any[]>([]);
+  const [statsList, setStatsList] = useState<any[]>([]);
+
+  useEffect(() => {
+    Promise.all([
+      getPrograms(),
+      getQuotas(),
+      getTestimonials(),
+      getJobFields(),
+      getStats(),
+    ])
+      .then(([progs, quotas, testims, fields, stats]) => {
+        if (progs) setProgramsList(progs);
+        if (quotas) setQuotasList(quotas);
+        if (testims) setTestimonialsList(testims);
+        if (fields) setJobFieldsList(fields);
+        if (stats) setStatsList(stats);
+      })
+      .catch(console.error);
+  }, []);
 
   const handleAnimationComplete = () => {
     setShowContent(true);
@@ -33,12 +58,12 @@ export default function Home() {
           <About />
           <Programs />
           <Advantages />
-          <Statistics />
-          <BasicProgram />
+          <Statistics statsList={statsList} />
+          <BasicProgram programsList={programsList} />
           <Location />
-          <QuotaSchedule />
+          <QuotaSchedule quotasList={quotasList} />
           <ProgramCosts />
-          <Testimonials />
+          <Testimonials testimonialsList={testimonialsList} />
           <Requirements />
           <RegistrationProcess />
           <Footer />
@@ -47,3 +72,4 @@ export default function Home() {
     </main>
   );
 }
+

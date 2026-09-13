@@ -10,7 +10,17 @@ const springTransition = {
   mass: 0.5
 } as const;
 
-const statsData = [
+interface StatItem {
+  id?: number
+  category: string
+  count: string
+}
+
+interface StatisticsProps {
+  statsList?: StatItem[]
+}
+
+const defaultStats: StatItem[] = [
   { category: "Perawat Lansia", count: "210" },
   { category: "Pengolahan Makanan", count: "198" },
   { category: "Jasa Makanan", count: "129" },
@@ -19,7 +29,9 @@ const statsData = [
   { category: "Building Cleaning", count: "31" }
 ];
 
-export default function Statistics() {
+export default function Statistics({ statsList = [] }: StatisticsProps) {
+  const displayStats = statsList.length > 0 ? statsList : defaultStats;
+
   return (
     <section className={styles.statisticsSection}>
       <motion.div 
@@ -35,9 +47,9 @@ export default function Statistics() {
         </h2>
 
         <div className={styles.grid}>
-          {statsData.map((item, index) => (
+          {displayStats.map((item, index) => (
             <motion.div 
-              key={index}
+              key={item.id || index}
               className={styles.statCard}
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
@@ -58,3 +70,4 @@ export default function Statistics() {
     </section>
   );
 }
+

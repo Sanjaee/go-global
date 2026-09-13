@@ -1,0 +1,16 @@
+export const JOB_FIELDS = [
+  "Keperawatan Lansia",
+  "Pengolahan Makanan & Minuman",
+  "Jasa Makanan (Restoran)",
+  "Pembersihan Gedung",
+  "Manufaktur Mesin Industri",
+  "Industri Terkait Informasi",
+  "Listrik & Elektronik",
+  "Pertanian",
+  "Perikanan",
+  "Perhotelan",
+  "Konstruksi",
+  "Pembuatan Kapal",
+  "Perawatan Mobil",
+  "Aviasi",
+] as const;

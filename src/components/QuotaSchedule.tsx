@@ -10,7 +10,29 @@ const springTransition = {
   mass: 0.5
 } as const;
 
-export default function QuotaSchedule() {
+interface QuotaItem {
+  id: number
+  title: string
+  subtitle: string
+  quotaNumber: string
+}
+
+interface QuotaScheduleProps {
+  quotasList?: QuotaItem[]
+}
+
+const defaultQuotas: QuotaItem[] = [
+  {
+    id: 1,
+    title: "Bidang Keperawatan Lansia",
+    subtitle: "Khusus Perempuan",
+    quotaNumber: "40 Orang"
+  }
+]
+
+export default function QuotaSchedule({ quotasList = [] }: QuotaScheduleProps) {
+  const displayQuotas = quotasList.length > 0 ? quotasList : defaultQuotas
+
   return (
     <section className={styles.quotaSection}>
       <div className={styles.container}>
@@ -27,17 +49,22 @@ export default function QuotaSchedule() {
             Kuota Program
           </motion.h2>
 
-          <motion.div
-            className={styles.card}
-            initial={{ opacity: 0, scale: 0.96, y: 20 }}
-            whileInView={{ opacity: 1, scale: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={springTransition}
-          >
-            <h3 className={styles.cardTitle}>Bidang Keperawatan Lansia</h3>
-            <p className={styles.cardSubtitle}>Khusus Perempuan</p>
-            <div className={styles.quotaNumber}>40 Orang</div>
-          </motion.div>
+          <div className="w-full space-y-4 flex flex-col items-center">
+            {displayQuotas.map((q, idx) => (
+              <motion.div
+                key={q.id || idx}
+                className={styles.card}
+                initial={{ opacity: 0, scale: 0.96, y: 20 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={springTransition}
+              >
+                <h3 className={styles.cardTitle}>{q.title}</h3>
+                <p className={styles.cardSubtitle}>{q.subtitle}</p>
+                <div className={styles.quotaNumber}>{q.quotaNumber}</div>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
         {/* Divider */}

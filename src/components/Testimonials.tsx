@@ -5,14 +5,28 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FiArrowLeft, FiArrowRight } from 'react-icons/fi';
 import styles from './Testimonials.module.css';
 
-const testimonialsData = [
+interface TestimonialItem {
+  id: number
+  name: string
+  location: string
+  image: string
+  text: string
+}
+
+interface TestimonialsProps {
+  testimonialsList?: TestimonialItem[]
+}
+
+const defaultTestimonials: TestimonialItem[] = [
   {
+    id: 1,
     name: "Anisa",
     location: "Jakarta, Indonesia",
     image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=150&auto=format&fit=crop",
     text: "Belajar selama 5.5 bulan di Go Global Indonesia sangat seru, sensei nya profesional punya sertifikat N2 dan sabar mengajari kami sampai lulus JFT dan SSW. Disini juga ga hanya belajar bahasa jepang namun juga budaya jepang. Mulai dari pemilahan sampah sampai cara memakai yukata bahkan penulisan kaligrafi Jepang juga. Pembelajaran pun super intensif dan interaktif yang bikin belajar jadi ga bosenin."
   },
   {
+    id: 2,
     name: "Lifah",
     location: "Bandung, Indonesia",
     image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=150&auto=format&fit=crop",
@@ -22,37 +36,37 @@ const testimonialsData = [
 
 const variants = {
   enter: (direction: number) => ({
-    x: direction > 0 ? "100%" : "-100%"
+    x: direction > 0 ? 300 : -300,
+    opacity: 0
   }),
   center: {
+    zIndex: 1,
     x: 0,
-    transition: {
-      x: { type: "spring" as const, stiffness: 180, damping: 22 }
-    }
+    opacity: 1
   },
   exit: (direction: number) => ({
-    x: direction < 0 ? "100%" : "-100%",
-    transition: {
-      x: { type: "spring" as const, stiffness: 180, damping: 22 }
-    }
+    zIndex: 0,
+    x: direction < 0 ? 300 : -300,
+    opacity: 0
   })
 };
 
-export default function Testimonials() {
+export default function Testimonials({ testimonialsList = [] }: TestimonialsProps) {
+  const activeList = testimonialsList.length > 0 ? testimonialsList : defaultTestimonials;
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(0);
 
   const handleNext = () => {
     setDirection(1);
-    setIndex((prevIndex) => (prevIndex + 1) % testimonialsData.length);
+    setIndex((prevIndex) => (prevIndex + 1) % activeList.length);
   };
 
   const handlePrev = () => {
     setDirection(-1);
-    setIndex((prevIndex) => (prevIndex - 1 + testimonialsData.length) % testimonialsData.length);
+    setIndex((prevIndex) => (prevIndex - 1 + activeList.length) % activeList.length);
   };
 
-  const current = testimonialsData[index];
+  const current = activeList[index] || activeList[0];
 
   return (
     <section className={styles.testimonialsSection}>
@@ -72,7 +86,7 @@ export default function Testimonials() {
         {/* Carousel Area */}
         <div className={styles.carouselWrapper}>
           <div className={styles.cardContainer}>
-            {/* Invisible dummy card containing the longest text to set container height dynamically */}
+            {/* Invisible dummy card containing the text to set container height dynamically */}
             <div className={styles.dummyCard} aria-hidden="true">
               <div className={styles.quoteMark}>“</div>
               <div className={styles.cardHeader}>
@@ -80,10 +94,10 @@ export default function Testimonials() {
                   <div className={styles.avatar} />
                 </div>
               </div>
-              <p className={styles.text}>{testimonialsData[0].text}</p>
+              <p className={styles.text}>{activeList[0]?.text || ""}</p>
               <div className={styles.meta}>
-                <h4 className={styles.name}>{testimonialsData[0].name}</h4>
-                <span className={styles.location}>{testimonialsData[0].location}</span>
+                <h4 className={styles.name}>{activeList[0]?.name || ""}</h4>
+                <span className={styles.location}>{activeList[0]?.location || ""}</span>
               </div>
             </div>
 
